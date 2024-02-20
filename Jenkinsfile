@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         node {
-            label 'docker-agent-alpine'
+            label 'docker-agent-python'
             }
     }        
     triggers {
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Building..."
                 sh '''
-                echo "doing build stuff..."
+                echo "Building the application now..."
                 '''
             }
         }
@@ -20,15 +20,15 @@ pipeline {
             steps {
                 echo "Testing..."
                 sh '''
-                echo "doing test stuff..."
+                echo "Testing the application now..."
                 '''
             }
         }
-        stage('Deliver') {
+        stage('Deployment') {
             steps {
-                echo 'Deliver...'
+                echo 'Deploying...'
                 sh '''
-                echo "doing delivery stuff..."
+                echo "Deploying the application now..."
                 '''
             }
         }
