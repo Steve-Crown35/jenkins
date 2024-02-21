@@ -12,7 +12,8 @@ pipeline {
             steps {
                 echo "Building..."
                 sh '''
-                echo "Building the application now..."
+                cd myapp
+                pip install -r requirements.txt
                 '''
             }
         }
@@ -20,7 +21,9 @@ pipeline {
             steps {
                 echo "Testing..."
                 sh '''
-                echo "Testing the application now..."
+                cd myapp
+                python3 hello.py
+                python3 hello.py --name="Stephen Asuquo"
                 '''
             }
         }
